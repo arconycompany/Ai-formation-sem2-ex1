@@ -8,3 +8,7 @@ node_modules/
 .claude/settings.local.json
 .claude/session-log.md
 .claude/notes/
+.claude/CLAUDE.md
+
+# Ephemeral project artifacts
+backlog/
