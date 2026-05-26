@@ -4,7 +4,12 @@ node_modules/
 .env.local
 .DS_Store
 
-# Local Claude artifacts (perso)
+# Override global .claude/ ignore — track shared team files
+!.claude/
+!.claude/settings.json
+!.claude/statusline-command.sh
+
+# Local Claude artifacts (perso, gitignored)
 .claude/settings.local.json
 .claude/session-log.md
 .claude/notes/
