@@ -1,0 +1,42 @@
+{
+  "_comment": "Exemple de wiring complet pour l'Exercice 2. À copier dans .claude/settings.json puis adapter. La variante A (blocking) et la variante B (augment) sont MUTUELLEMENT EXCLUSIVES — décommentez l'une OU l'autre, pas les deux, sinon vous bloquez ET vous annotez.",
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "_comment": "Variante A · BLOQUER le commit si BLOQUANT détecté",
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/scripts/check-commit-blocking.sh"
+          }
+        ]
+      }
+    ],
+
+    "PostToolUse_VARIANTE_B_renommer_si_choisie": [
+      {
+        "_comment": "Variante B · AUGMENTER le commit avec une git note. Renommer la clé en 'PostToolUse' pour activer.",
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/scripts/augment-commit.sh"
+          }
+        ]
+      }
+    ],
+
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/scripts/session-log.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
