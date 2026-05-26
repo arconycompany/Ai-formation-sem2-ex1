@@ -8,8 +8,6 @@ Mini-monorepo simulating part of the HelloIT Pulse system. 3 microservices:
 - **tickets-api** — ticket CRUD, in-memory store (port 4001)
 - **notifications-worker** — Slack notification queue (port 4002)
 
-Team: 6 devs, 1 tech lead (Marc), PM (Sophie). 2-week sprints.
-
 ## Stack & Environment
 
 - Node.js v20 LTS, ES modules (`type: module` in every package.json)
@@ -17,20 +15,6 @@ Team: 6 devs, 1 tech lead (Marc), PM (Sophie). 2-week sprints.
 - tickets-api: Express v4, in-memory Map (no DB yet)
 - notifications-worker: Express v4 + setInterval worker
 - Root: npm workspaces + concurrently
-
-## API Endpoints
-
-### auth-gateway (port 4000)
-- `POST /auth/login` — `{ username, password }` → `{ token }`
-- `GET /auth/verify` — `Authorization: Bearer <token>` → `{ ok, payload }`
-
-### tickets-api (port 4001)
-- `POST /v1/tickets` — `{ title, body, priority, reporter }` → ticket with `id`, `createdAt`
-- `GET /v1/tickets/:id` — ticket or 404
-- `GET /v1/tickets` — array of all tickets
-
-### notifications-worker (port 4002)
-- `POST /v1/notifications` — `{ channel, message, recipient }` → `{ queued: true }`
 
 ## How to Run
 
